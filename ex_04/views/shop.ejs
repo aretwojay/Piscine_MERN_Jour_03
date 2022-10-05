@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head'); %>
+</head>
+<body class="pt-0">    
+    <header>
+        <%- include('partials/header'); %>
+    </header>
+
+    <% if (locals.products) {  %>
+        <div class="container">
+            <h2>Tous les produits</h2>
+            <div class="row gap-2">
+                <% if (Object.keys(products).length == 0) {  %>
+                    <p>Aucun produit en stock.</p>
+                <% } %>
+
+                <% for (const [key, product] of Object.entries(products)) { %>
+                    <div class="card p-3" style="width: 18rem;">
+                        <a class="text-decoration-none" href="<%= `/shop/${product._id}` %>">
+                            <h3 class="card-title"><%= product.title %></h3>
+                            <p class="card-text"><%= product.price %>€</p>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    <% } else { %>
+        <p>Rien</p>
+    <% } %>
+
+    <footer>
+        <%- include('partials/footer'); %>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head'); %>
+</head>
+<body class="pt-0">    
+    <header>
+        <%- include('partials/header'); %>
+    </header>
+
+    <% if (locals.login) {  %>
+        <p>Welcome <%= login %> !</p>
+    <% } %>
+
+    <footer>
+        <%- include('partials/footer'); %>
+    </footer>
+</body>
+</html>

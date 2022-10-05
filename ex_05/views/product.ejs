@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <%- include('partials/head'); %>
+</head>
+<body>    
+    <header>
+        <%- include('partials/header'); %>
+    </header>
+
+    <% if (locals.product) {  %>
+        <div class="card border rounded mx-auto" style="width: 50rem;">
+            <h1 class="card-header">Fiche produit</h1>
+            <div class="card-body pt-0">
+                <p class="text-muted">Catégorie : <%= category.name %></p>
+                <h3 class=""><%= product.title %></h3>
+                <p class="mb-0">Prix : <%= product.price %>€</p>
+                <p>Description : <%= product.description %></p>
+            </div>
+        </div>
+    <% } %>
+
+    <footer>
+        <%- include('partials/footer'); %>
+    </footer>
+</body>
+</html>

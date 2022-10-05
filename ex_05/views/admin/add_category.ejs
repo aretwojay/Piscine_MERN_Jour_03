@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body>    
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <% if (locals.errors) {  %>
+        <% for (const [key, error] of Object.entries(errors)) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+    <% } %>
+
+    <% if (locals.success) {  %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+    <% } %>
+    
+    <h2>Ajouter une catégorie</h2>
+    <form action="/admin/add/category" method="post">
+        <input class="form-control m-2" type="text" name="name" placeholder="name">
+
+        <input class="btn btn-secondary" type="submit" value="Create"/>
+    </form>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+</html>
